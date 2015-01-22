@@ -16,6 +16,15 @@ right-key of your mouse to search for translations of this word.
 
 [Translator-menu](https://raw.githubusercontent.com/nemoinho/greasemonkey-scripts/master/translation-menu.user.js)
 
+Gmail Image Correction
+----------------------
+This script resizes inline-images in gmail if the size of the image exceed the possible page width.
+
+To use this context-menu need greasemonkey and  have to install the following
+script.
+
+[Gmail Image Correction](https://raw.githubusercontent.com/nemoinho/greasemonkey-scripts/master/gmail-image-correction.user.js)
+
 License
 -------
 THE BEER-WARE LICENSE (Revision 42):
