@@ -14,7 +14,7 @@ To use this context-menu need greasemonkey and  have to install the following
 script. Then you can select any word on a website and press CTRL plus the
 right-key of your mouse to search for translations of this word.
 
-[Translator-menu](https://raw.githubusercontent.com/nemoinho/greasemonkey-scripts/master/translation-menu.user.js)
+[Translator-menu](https://raw.githubusercontent.com/nemoinho/greasemonkey-scripts/master/src/translation-menu.user.js)
 
 Gmail Image Correction
 ----------------------
@@ -23,7 +23,7 @@ This script resizes inline-images in gmail if the size of the image exceed the p
 To use this context-menu need greasemonkey and  have to install the following
 script.
 
-[Gmail Image Correction](https://raw.githubusercontent.com/nemoinho/greasemonkey-scripts/master/gmail-image-correction.user.js)
+[Gmail Image Correction](https://raw.githubusercontent.com/nemoinho/greasemonkey-scripts/master/src/gmail-image-correction.user.js)
 
 License
 -------
