@@ -8,3 +8,8 @@
 // @include     https://mail.google.com/*
 // @grant       GM_addStyle
 // ==/UserScript==
+
+GM_addStyle(
+    ".a3s, .a3s img { max-width:100%; }"
+    + "table.Bs.nH.iY { table-layout:fixed; }"
+);
