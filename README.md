@@ -39,7 +39,10 @@ Use this script to get a better user experience on watchseriestv.to. This
 script replaces the webplayer and the hundreds of anoying popups by a direct
 download-prompt to view the episode in the video player of your choice.
 
-To experience this enhancement you need
+Currently the following video-providers are supported (others will come soon):
+- gorillavid.in
+
+To enhance your experience you need
 [Greasemonkey](https://addons.mozilla.org/en-us/firefox/addon/greasemonkey/) or [Tampermonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=en)
 and have to install the
 following script.
