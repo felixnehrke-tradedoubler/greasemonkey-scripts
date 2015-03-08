@@ -18,10 +18,11 @@ right-key of your mouse to search for translations of this word.
 
 Gmail Image Correction
 ----------------------
-This script resizes inline-images in gmail if the size of the image exceed the possible page width.
+This script resizes inline-images in gmail if the size of the image exceed the
+possible page width.
 
-To use this context-menu need greasemonkey and  have to install the following
-script.
+To enjoy this improvement you need greasemonkey and have to install the
+following script.
 
 [Gmail Image Correction](https://raw.githubusercontent.com/nemoinho/greasemonkey-scripts/master/src/gmail-image-correction.user.js)
 
