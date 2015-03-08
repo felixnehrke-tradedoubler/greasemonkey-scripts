@@ -2,8 +2,8 @@
 // @name        Better watchseriestv.to
 // @namespace   watchseriestv
 // @description Use this extension to get a download-link to watch the episode in a player of your choice instead of the webplayer garnished by a few hundred popups. (Works only on gorillavid-links at the momen)
-// @updateURL   https://raw.githubusercontent.com/nemoinho/greasemonkey-scripts/master/src/watchseriestv.to.user.js
-// @downloadURL https://raw.githubusercontent.com/nemoinho/greasemonkey-scripts/master/src/watchseriestv.to.user.js
+// @updateUR   https://raw.githubusercontent.com/nemoinho/greasemonkey-scripts/master/src/watchseriestv.to.user.js
+// @downloadUR https://raw.githubusercontent.com/nemoinho/greasemonkey-scripts/master/src/watchseriestv.to.user.js
 // @include     /^https?://(www\.)?watchseriestv\.to/.*$/
 // @include     /^https?://([^/]*\.)?gorillavid.in/.*$/
 // @version     1.0
@@ -11,6 +11,81 @@
 // ==/UserScript==
 
 (function(){
+var DownloadManager = function(){
+    this.link = '';
+};
+DownloadManager.prototype.startDownload = function(){
+    var self = this;
+    GM_xmlhttpRequest({
+      method: 'GET',
+      url: self.link.href,
+      onload: self.parseAndProcessLinkPage.bind(self)
+    });
+    return false;
+};
+DownloadManager.prototype.parseAndProcessVideoPage = function(){
+    console.log('Provider has to implement parseAndProcessVideoPage()!');
+};
+DownloadManager.prototype.checkTitle = function(title){
+    return this.checkUrl(title);
+};
+DownloadManager.prototype.checkUrl = function(url){
+    return false;
+};
+DownloadManager.supportedProviders = [];
+DownloadManager.addSupportedProvider = function(constructor, methods){
+    var i, l;
+    if (!methods) {
+        methods = constructor;
+        constructor = function(){};
+    }
+    if (methods.length && methods instanceof Array) {
+        for (i = methods.length; i--; ) {
+            DownloadManager.addSupportedProvider(methods[i]);
+        }
+        return false;
+    };
+    constructor.prototype = new DownloadManager;
+    for (i in methods) {
+        if (methods.hasOwnProperty(i)) {
+            constructor.prototype[i] = methods[i];
+        }
+    }
+    l = DownloadManager.supportedProviders.push(constructor);
+};
+DownloadManager.initiateDownloadLinks = function(){
+    var videoLinks, i, j, provider, link;
+    videoLinks = document.getElementsByClassName('buttonlink');
+    for (i = videoLinks.length; i--; ) {
+        link = videoLinks[i];
+        for (j = DownloadManager.supportedProviders.length; j--; ) {
+            provider = new DownloadManager.supportedProviders[j];
+            if (provider.checkTitle(link.title)) {
+                console.log(provider.website);
+                provider.link = link;
+                link.style.background = '#6aa';
+                link.onclick = provider.startDownload.bind(provider);
+                break;
+            }
+        }
+    }
+};
+
+DownloadManager.addSupportedProvider({
+    website: 'gorillavid.in',
+    checkUrl: function(url){
+        return /gorillavid\.in/.test(url);
+    }
+});
+
+DownloadManager.initiateDownloadLinks();
+
+
+
+})()
+
+(function(){
+    return;
   var referer = ''; // ugly work around
   var findAllRelevantVideoLinks = function() {
     var ret = [];
