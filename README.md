@@ -25,6 +25,17 @@ script.
 
 [Gmail Image Correction](https://raw.githubusercontent.com/nemoinho/greasemonkey-scripts/master/src/gmail-image-correction.user.js)
 
+Better watchseriestv.to
+-----------------------------
+Use this script to get a better user experience on watchseriestv.to. This
+script replaces the webplayer and the hundreds of anoying popups by a direct
+download-prompt to view the episode in the video player of your choice.
+
+To experience this enhancement you need greasemonkey and have to install the
+following script.
+
+[Better watchseriestv.to](https://raw.githubusercontent.com/nemoinho/greasemonkey-scripts/master/src/watchseriestv.to.user.js)
+
 License
 -------
 THE BEER-WARE LICENSE (Revision 42):
