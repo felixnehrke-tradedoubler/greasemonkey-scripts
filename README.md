@@ -15,9 +15,9 @@ of slang-terms there, too.
 
 To use this context-menu need
 [Greasemonkey](https://addons.mozilla.org/en-us/firefox/addon/greasemonkey/) or [Tampermonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=en)
-and  have to install the following
-script. Then you can select any word on a website and press CTRL plus the
-right-key of your mouse to search for translations of this word.
+and  have to install the following script. Then you can select any word on a
+website and press CTRL plus the right-key of your mouse to search for
+translations of this word.
 
 [Translator-menu](https://raw.githubusercontent.com/nemoinho/greasemonkey-scripts/master/src/translation-menu.user.js)
 
@@ -28,8 +28,7 @@ possible page width.
 
 To enjoy this improvement you need
 [Greasemonkey](https://addons.mozilla.org/en-us/firefox/addon/greasemonkey/) or [Tampermonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=en)
-and have to install the
-following script.
+and have to install the following script.
 
 [Gmail Image Correction](https://raw.githubusercontent.com/nemoinho/greasemonkey-scripts/master/src/gmail-image-correction.user.js)
 
@@ -44,8 +43,7 @@ Currently the following video-providers are supported (others will come soon):
 
 To enhance your experience you need
 [Greasemonkey](https://addons.mozilla.org/en-us/firefox/addon/greasemonkey/) or [Tampermonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=en)
-and have to install the
-following script.
+and have to install the following script.
 
 [Better watchseriestv.to](https://raw.githubusercontent.com/nemoinho/greasemonkey-scripts/master/src/watchseriestv.to.user.js)
 
