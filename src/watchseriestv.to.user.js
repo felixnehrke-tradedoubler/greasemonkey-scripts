@@ -6,7 +6,7 @@
 // @downloadURL https://raw.githubusercontent.com/nemoinho/greasemonkey-scripts/master/src/watchseriestv.to.user.js
 // @include     /^https?://(www\.)?watchseriestv\.to/.*$/
 // @include     /^https?://([^/]*\.)?gorillavid.in/.*$/
-// @version     1.0
+// @version     2.0
 // @grant GM_xmlhttpRequest
 // ==/UserScript==
 
