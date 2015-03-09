@@ -40,6 +40,14 @@ download-prompt to view the episode in the video player of your choice.
 
 Currently the following video-providers are supported (others will come soon):
 - gorillavid.in
+- vodlocker.com
+- movpod.in
+- daclips.in
+
+Still in development
+- vidspot.net
+- allmyvideos.net
+- movreel.com
 
 To enhance your experience you need
 [Greasemonkey](https://addons.mozilla.org/en-us/firefox/addon/greasemonkey/) or [Tampermonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=en)
