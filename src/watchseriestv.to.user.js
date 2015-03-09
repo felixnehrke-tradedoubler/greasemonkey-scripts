@@ -6,7 +6,7 @@
 // @downloadURL https://raw.githubusercontent.com/nemoinho/greasemonkey-scripts/master/src/watchseriestv.to.user.js
 // @include     /^https?://(www\.)?watchseriestv\.to/.*$/
 // @include     /^https?://([^/]*\.)?gorillavid.in/.*$/
-// @version     2.0
+// @version     2.1
 // @grant GM_xmlhttpRequest
 // ==/UserScript==
 
@@ -34,6 +34,26 @@ DownloadManager.prototype.parseAndProcessLinkPage = function(response){
       url: url,
       onload: self.parseAndProcessVideoPage.bind(self)
     });
+};
+DownloadManager.prototype.offerDownload = function(url, failure){
+    if (!failure) {
+        DownloadManager.iframe.src = url;
+    } else {
+        function getOffset( el ) {
+            var _x = 0;
+            var _y = 0;
+            while( el && !isNaN( el.offsetLeft ) && !isNaN( el.offsetTop ) ) {
+                _x += el.offsetLeft - el.scrollLeft;
+                _y += el.offsetTop - el.scrollTop;
+                el = el.offsetParent;
+            }
+            return { top: _y, left: _x };
+        };
+        var position = getOffset(this.link);
+        position.left += this.link.offsetWidth + 4;
+        DownloadManager.failureMessage.style.left = position.left + 'px';
+        DownloadManager.failureMessage.style.top = position.top + 'px';
+    }
 };
 DownloadManager.prototype.parseAndProcessVideoPage = function(){
     console.log('Provider has to implement parseAndProcessVideoPage()!');
@@ -65,7 +85,16 @@ DownloadManager.addSupportedProvider = function(constructor, methods){
     }
     l = DownloadManager.supportedProviders.push(constructor);
 };
+DownloadManager.iframe = document.createElement('iframe');
+DownloadManager.failureMessage = document.createElement('span');
 DownloadManager.initiateDownloadLinks = function(){
+    document.body.appendChild(DownloadManager.iframe);
+    document.body.appendChild(DownloadManager.failureMessage);
+    DownloadManager.failureMessage.innerHTML = 'There occured a failure during loading this video';
+    DownloadManager.failureMessage.style.background = '#faa';
+    DownloadManager.failureMessage.style.border = '1px solid #900';
+    DownloadManager.failureMessage.style.color = '#900';
+    DownloadManager.failureMessage.style.position = 'absolute';
     var videoLinks, i, j, provider, link;
     videoLinks = document.getElementsByClassName('buttonlink');
     for (i = videoLinks.length; i--; ) {
@@ -148,12 +177,13 @@ DownloadManager.addSupportedProvider({
         var url = responseText.substr(responseText.indexOf(s2) + s1.length);
         url = url.substr(0, url.indexOf(s3));
         if (/^http:\/\//.test(url)) {
-            location.href = url;
+            this.offerDownload(url);
         } else {
             console.log(url);
             if (this.counter < 3) {
                 this.parseAndProcessVideoPage(this.response);
             } else {
+                this.offerDownload(false, true);
                 this.counter = 0;
                 console.log('Not possible to follow this download link');
             }
@@ -207,11 +237,12 @@ DownloadManager.addSupportedProvider({
         var links = wrapper.querySelectorAll('a');
         for (var i = links.length; i--; ) {
             if (links[i].innerHTML == 'Download Link') {
+                this.offerDownload(links[i].href);
                 console.log(links[i].href);
-                location.href = links[i].href;
                 return;
             }
         }
+        this.offerDownload(false, true);
         console.log('Not possible to follow this download link');
     }
 });
@@ -263,12 +294,13 @@ DownloadManager.addSupportedProvider({
         var url = responseText.substr(responseText.indexOf(s2) + s1.length);
         url = url.substr(0, url.indexOf(s3));
         if (/^http:\/\//.test(url)) {
-            location.href = url;
+            this.offerDownload(url);
         } else {
             console.log(url);
             if (this.counter < 3) {
                 this.parseAndProcessVideoPage(this.response);
             } else {
+                this.offerDownload(false, true);
                 this.counter = 0;
                 console.log('Not possible to follow this download link');
             }
