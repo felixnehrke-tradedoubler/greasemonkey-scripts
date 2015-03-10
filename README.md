@@ -14,7 +14,7 @@ growing dictionary which is mainly filled by it's users, so you can find a lot
 of slang-terms there, too.
 
 To use this context-menu need
-[Greasemonkey](https://addons.mozilla.org/en-us/firefox/addon/greasemonkey/) or [Tampermonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=en)
+[Greasemonkey](https://addons.mozilla.org/en-us/firefox/addon/greasemonkey/ "Firefox") or [Tampermonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=en "Chrome")
 and  have to install the following script. Then you can select any word on a
 website and press CTRL plus the right-key of your mouse to search for
 translations of this word.
@@ -27,7 +27,7 @@ This script resizes inline-images in gmail if the size of the image exceed the
 possible page width.
 
 To enjoy this improvement you need
-[Greasemonkey](https://addons.mozilla.org/en-us/firefox/addon/greasemonkey/) or [Tampermonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=en)
+[Greasemonkey](https://addons.mozilla.org/en-us/firefox/addon/greasemonkey/ "Firefox") or [Tampermonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=en "Chrome")
 and have to install the following script.
 
 [Gmail Image Correction](https://raw.githubusercontent.com/nemoinho/greasemonkey-scripts/master/src/gmail-image-correction.user.js)
@@ -50,7 +50,7 @@ Still in development
 - movreel.com
 
 To enhance your experience you need
-[Greasemonkey](https://addons.mozilla.org/en-us/firefox/addon/greasemonkey/) or [Tampermonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=en)
+[Greasemonkey](https://addons.mozilla.org/en-us/firefox/addon/greasemonkey/ "Firefox") or [Tampermonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=en "Chrome")
 and have to install the following script.
 
 [Better watchseriestv.to](https://raw.githubusercontent.com/nemoinho/greasemonkey-scripts/master/src/watchseriestv.to.user.js)
