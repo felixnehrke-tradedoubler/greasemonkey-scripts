@@ -106,6 +106,8 @@ DownloadManager.initiateDownloadLinks = function(){
                 link.style.background = '#6aa';
                 link.onclick = provider.startDownload.bind(provider);
                 break;
+            } else if (!link.title || link.title == '') {
+                link.parentNode.removeChild(link);
             }
         }
     }
