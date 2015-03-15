@@ -38,21 +38,19 @@ DownloadManager.prototype.parseAndProcessLinkPage = function(response){
 DownloadManager.prototype.offerDownload = function(url, failure){
     if (!failure) {
         DownloadManager.iframe.src = url;
-    } else {
-        function getOffset( el ) {
-            var _x = 0;
-            var _y = 0;
-            while( el && !isNaN( el.offsetLeft ) && !isNaN( el.offsetTop ) ) {
-                _x += el.offsetLeft - el.scrollLeft;
-                _y += el.offsetTop - el.scrollTop;
-                el = el.offsetParent;
-            }
-            return { top: _y, left: _x };
+        console.log(url);
+        this.link.href = url;
+        this.link.innerHTML += ' →';
+        this.link.onclick = function(){
+            DownloadManager.iframe.src = this.href;
+            return false;
         };
-        var position = getOffset(this.link);
-        position.left += this.link.offsetWidth + 4;
-        DownloadManager.failureMessage.style.left = position.left + 'px';
-        DownloadManager.failureMessage.style.top = position.top + 'px';
+    } else {
+        var dimensions = DownloadManager.getDimensions(this.link);
+        var position = dimensions.page;
+        position.x += dimensions.width + 4;
+        DownloadManager.failureMessage.style.left = position.x + 'px';
+        DownloadManager.failureMessage.style.top = position.y + 'px';
     }
 };
 DownloadManager.prototype.parseAndProcessVideoPage = function(){
@@ -63,6 +61,23 @@ DownloadManager.prototype.checkTitle = function(title){
 };
 DownloadManager.prototype.checkUrl = function(url){
     return false;
+};
+DownloadManager.getDimensions = function(el){
+    var elCpy = el;
+    var x = 0;
+    var y = 0;
+    while( el && !isNaN( el.offsetLeft ) && !isNaN( el.offsetTop ) ) {
+        x += el.offsetLeft - el.scrollLeft;
+        y += el.offsetTop - el.scrollTop;
+        el = el.offsetParent;
+    }
+    return {
+        page: {x: x, y: y},
+        top: elCpy.offsetTop - elCpy.scrollTop,
+        left: elCpy.offsetLeft - elCpy.scrollLeft,
+        width: elCpy.offsetWidth,
+        height: elCpy.offsetHeight
+    };
 };
 DownloadManager.supportedProviders = [];
 DownloadManager.addSupportedProvider = function(constructor, methods){
@@ -98,6 +113,11 @@ DownloadManager.initiateDownloadLinks = function(){
     DownloadManager.failureMessage.style.border = '1px solid #900';
     DownloadManager.failureMessage.style.color = '#900';
     DownloadManager.failureMessage.style.position = 'absolute';
+    DownloadManager.failureMessage.style.borderRadius = '3px';
+    DownloadManager.failureMessage.style.padding = '0px 7px';
+    DownloadManager.failureMessage.style.fontSize = '15px';
+    DownloadManager.failureMessage.style.lineHeight = '22px';
+    DownloadManager.failureMessage.style.marginTop = '-2px';
     var videoLinks, i, j, provider, link;
     videoLinks = document.getElementsByClassName('buttonlink');
     for (i = videoLinks.length; i--; ) {
