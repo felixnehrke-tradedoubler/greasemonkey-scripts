@@ -6,7 +6,7 @@
 // @downloadURL https://raw.githubusercontent.com/nemoinho/greasemonkey-scripts/master/src/watchseriestv.to.user.js
 // @include     /^https?://(www\.)?watchseriestv\.to/.*$/
 // @include     /^https?://([^/]*\.)?gorillavid.in/.*$/
-// @version     2.1
+// @version     2.2
 // @grant GM_xmlhttpRequest
 // ==/UserScript==
 
@@ -88,6 +88,9 @@ DownloadManager.addSupportedProvider = function(constructor, methods){
 DownloadManager.iframe = document.createElement('iframe');
 DownloadManager.failureMessage = document.createElement('span');
 DownloadManager.initiateDownloadLinks = function(){
+    var ad = document.querySelector('.a-el');
+    ad.parentNode.removeChild(ad);
+    delete ad;
     document.body.appendChild(DownloadManager.iframe);
     document.body.appendChild(DownloadManager.failureMessage);
     DownloadManager.failureMessage.innerHTML = 'There occured a failure during loading this video';
@@ -106,8 +109,8 @@ DownloadManager.initiateDownloadLinks = function(){
                 link.style.background = '#6aa';
                 link.onclick = provider.startDownload.bind(provider);
                 break;
-            } else if (!link.title || link.title == '') {
-                link.parentNode.removeChild(link);
+            } else if (!link.title || link.title == '' || link.title == 'Sponsored') {
+                link.style.display = 'none';
             }
         }
     }
