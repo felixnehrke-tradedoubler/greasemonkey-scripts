@@ -7,7 +7,7 @@
 // @include     /^https?://(www\.)?watchseriestv\.to/.*$/
 // @include     /^https?://(www\.)?watch\-series\-tv\.to/.*$/
 // @include     /^https?://([^/]*\.)?gorillavid.in/.*$/
-// @version     2.3
+// @version     2.4
 // @grant GM_xmlhttpRequest
 // ==/UserScript==
 
@@ -105,7 +105,9 @@ DownloadManager.iframe = document.createElement('iframe');
 DownloadManager.failureMessage = document.createElement('span');
 DownloadManager.initiateDownloadLinks = function(){
     var ad = document.querySelector('.a-el');
-    ad.parentNode.removeChild(ad);
+    if (ad) {
+        ad.parentNode.removeChild(ad);
+    }
     delete ad;
     document.body.appendChild(DownloadManager.iframe);
     document.body.appendChild(DownloadManager.failureMessage);
