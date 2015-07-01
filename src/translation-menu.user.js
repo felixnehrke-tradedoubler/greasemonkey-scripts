@@ -2,7 +2,7 @@
 // @name        Translater-menu
 // @namespace   dictmenu
 // @description This Script offers a special context-menu to translate words by using dict.cc
-// @version     1.3
+// @version     1.4
 // @updateURL   https://raw.githubusercontent.com/nemoinho/greasemonkey-scripts/master/src/translation-menu.user.js
 // @downloadURL https://raw.githubusercontent.com/nemoinho/greasemonkey-scripts/master/src/translation-menu.user.js
 // @include     http://*
@@ -129,8 +129,8 @@
         var html = body.parentNode;
         var bodyPos = body.getBoundingClientRect();
         setCss(container, {
-            'top': (mouseTop - bodyPos.y - html.scrollTop) + 'px',
-            'left': (mouseLeft - bodyPos.x - html.scrollLeft) + 'px'
+            'top': (mouseTop - (bodyPos.y|0) - html.scrollTop) + 'px',
+            'left': (mouseLeft - (bodyPos.x|0) - html.scrollLeft) + 'px'
         });
         menuIsPresent = true;
     };
