@@ -2,13 +2,13 @@
 // @name        Clean jira email-tickets
 // @namespace   jira
 // @description This Script resizes the inside images in gmail if they exceed the possible page width
-// @version     1.2
+// @version     1.3
 // @updateURL   https://raw.githubusercontent.com/nemoinho/greasemonkey-scripts/master/src/clean-jira-email-tickets.user.js
 // @downloadURL https://raw.githubusercontent.com/nemoinho/greasemonkey-scripts/master/src/clean-jira-email-tickets.user.js
-// @include     http://192.168.168.11:8081/browse/*
-// @include     https://192.168.168.11:8081/browse/*
-// @include     http://192.168.168.11:8081/secure/RapidBoard.jspa*
-// @include     https://192.168.168.11:8081/secure/RapidBoard.jspa*
+// @include     http://192.168.171.11:8081/browse/*
+// @include     https://192.168.171.11:8081/browse/*
+// @include     http://192.168.171.11:8081/secure/RapidBoard.jspa*
+// @include     https://192.168.171.11:8081/secure/RapidBoard.jspa*
 // @grant       GM_addStyle
 // ==/UserScript==
 
