@@ -4,10 +4,11 @@
 // @description Use this extension to get a download-link to watch the episode in a player of your choice instead of the webplayer garnished by a few hundred popups. (Works only on gorillavid-links at the momen)
 // @updateURL   https://raw.githubusercontent.com/nemoinho/greasemonkey-scripts/master/src/watchseriestv.to.user.js
 // @downloadURL https://raw.githubusercontent.com/nemoinho/greasemonkey-scripts/master/src/watchseriestv.to.user.js
+// @include     /^https?://(www\.)?thewatchseries\.to/.*$/
 // @include     /^https?://(www\.)?watchseriestv\.to/.*$/
 // @include     /^https?://(www\.)?watch\-series\-tv\.to/.*$/
 // @include     /^https?://([^/]*\.)?gorillavid.in/.*$/
-// @version     2.4
+// @version     2.5
 // @grant GM_xmlhttpRequest
 // ==/UserScript==
 
